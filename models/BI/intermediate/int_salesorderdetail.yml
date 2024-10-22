@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: int_salesorderdetail
+    description: Tabela intermediaria para trazer o nome do produto no lugar do productid
+    columns:
+      - name: PK_SALESORDERDETAILID
+        description: Identificador único para cada registro de detalhe de pedido.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: FK_SALESORDERID
+        description: Identificador do pedido associado, referenciando a tabela de pedidos.
+
+      - name: NOME_PRODUCT
+        description: Nome do produto associado ao detalhe do pedido, facilitando a identificação do item vendido.
+
+      - name: ORDERQTY
+        description: Quantidade do produto solicitada no pedido.
+
+      - name: SPECIALOFFERID
+        description: Identificador da oferta especial aplicada ao pedido, se houver.
+
+      - name: UNITPRICE
+        description: Preço unitário do produto no momento da venda.
+
+      - name: UNITPRICEDISCOUNT
+        description: Desconto aplicado ao preço unitário do produto, se houver.

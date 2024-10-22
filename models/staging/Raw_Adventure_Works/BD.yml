@@ -13,4 +13,18 @@ sources:
             data_tests:
               - unique
               - not_null
+      - name: product
+        description: Tabela de produtos da Adventure Works
+        columns:
+          - name: productid
+            data_tests:
+              - unique
+              - not_null
+      - name: salesorderheader
+        description: Tabela de fato das vendas/transações da Adventure Works
+        columns:
+          - name: salesorderid
+            data_tests:
+              - unique
+              - not_null
                                   

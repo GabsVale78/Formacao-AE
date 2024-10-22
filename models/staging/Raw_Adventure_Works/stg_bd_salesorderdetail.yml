@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_bd_salesorderdetail
+    description: Tabela de preparação dos dados brutos da salesorderdetail, contendo detalhes de cada pedido realizado.
+    columns:
+      - name: PK_SALESORDERDETAILID
+        description: Identificador único para cada registro de detalhe de pedido.
+      - name: FK_SALESORDERID
+        description: Identificador do pedido associado, referenciando a tabela de pedidos.
+      - name: FK_PRODUCTID
+        description: Identificador do produto vendido, referenciando a tabela de produtos.
+      - name: ORDERQTY
+        description: Quantidade do produto solicitada no pedido.
+      - name: SPECIALOFFERID
+        description: Identificador da oferta especial aplicada ao pedido, se houver.
+      - name: UNITPRICE
+        description: Preço unitário do produto no momento da venda.
+      - name: UNITPRICEDISCOUNT
+        description: Desconto aplicado ao preço unitário do produto, se houver.

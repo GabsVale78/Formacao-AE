@@ -9,8 +9,8 @@ with
             cast(SALESORDERDETAILID as int) as pk_salesorderdetailid
             , cast(SALESORDERID as int) as fk_salesorderid
             , cast(PRODUCTID as int) as fk_productid
-            , cast(ORDERQTY as int) as ORDERQTY
-            , cast(SPECIALOFFERID as int) as SPECIALOFFERID
+            , cast(ORDERQTY as int) as orderqty
+            , cast(SPECIALOFFERID as int) as specialofferid
             , {{ round_decimals('UNITPRICE') }} as unitprice
             , {{ round_decimals('UNITPRICEDISCOUNT') }} as UNITPRICEDISCOUNT
            -- , cast(CARRIERTRACKINGNUMBER as int)
