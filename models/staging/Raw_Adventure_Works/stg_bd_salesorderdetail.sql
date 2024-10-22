@@ -12,7 +12,7 @@ with
             , cast(ORDERQTY as int) as ORDERQTY
             , cast(SPECIALOFFERID as int) as SPECIALOFFERID
             , {{ round_decimals('UNITPRICE') }} as unitprice
-            , cast(UNITPRICEDISCOUNT as float) as UNITPRICEDISCOUNT
+            , {{ round_decimals('UNITPRICEDISCOUNT') }} as UNITPRICEDISCOUNT
            -- , cast(CARRIERTRACKINGNUMBER as int)
            -- , cast(ROWGUID as int) 
            -- , cast(MODIFIEDDATE as varchar)
@@ -21,9 +21,3 @@ with
 
 select *
 from _rename_
-
-
-
-select
-    {{ round_decimals('UNITPRICE') }} as unitprice
-    from {{ source('BD_Adventure_Works', 'salesorderdetail') }}
