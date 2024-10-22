@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: BD_Adventure_Works
+    description: Dados da empresa Adventure Works
+    database: FEA24_9
+    schema: RAW_ADVENTURE_WORKS   
+    tables:
+      - name: salesorderdetail
+        description: Tabela de detalhamento das ordens de vendas da Adventure Works
+        columns:
+          - name: salesorderdetailid
+            data_tests:
+              - unique
+              - not_null
+                                  
