@@ -67,6 +67,25 @@ sources:
               - unique
               - not_null
 
+      - name: countryregion
+        description: blablabla
+
+      - name: address
+        description: blablabla
+        columns:
+          - name: addressid
+            data_tests:
+              - unique
+              - not_null
+
+      - name: stateprovince
+        description: blablabla
+        columns:
+          - name: stateprovinceid
+            data_tests:
+              - unique
+              - not_null
+
         
 
                                   

@@ -1,11 +1,14 @@
 version: 2
 
 models:
-  - name: dim_salesorderdetail
+  - name: int_order_detail
     description: Tabela intermediaria para trazer o nome do produto no lugar do productid
     columns:
       - name: PK_SALESORDERDETAILID
         description: Identificador único para cada registro de detalhe de pedido.
+        data_tests:
+          - unique
+          - not_null
 
       - name: FK_SALESORDERID
         description: Identificador do pedido associado, referenciando a tabela de pedidos.

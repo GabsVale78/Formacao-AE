@@ -1,5 +1,5 @@
 with 
-    salesorderdetail as (
+    order_detail as (
         select *
         from {{ ref('stg_bd__salesorderdetail') }}
     )
@@ -11,16 +11,16 @@ with
 
     , joined as (
         select
-            salesorderdetail.PK_SALESORDERDETAILID
-            , salesorderdetail.FK_SALESORDERID
+            order_detail.PK_SALESORDERDETAILID
+            , order_detail.FK_SALESORDERID
             , product.name_product
-            , salesorderdetail.ORDERQTY
-            , salesorderdetail.UNITPRICE
-            , salesorderdetail.UNITPRICEDISCOUNT
-            , salesorderdetail.SPECIALOFFERID
-        from salesorderdetail
+            , order_detail.ORDERQTY
+            , order_detail.UNITPRICE
+            , order_detail.UNITPRICEDISCOUNT
+            , order_detail.SPECIALOFFERID
+        from order_detail
         left join product
-            on salesorderdetail.fk_productid = product.pk_product
+            on order_detail.fk_productid = product.pk_product
     )
     
     , measure as (
