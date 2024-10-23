@@ -13,6 +13,7 @@ sources:
             data_tests:
               - unique
               - not_null
+
       - name: product
         description: Tabela de produtos da Adventure Works
         columns:
@@ -20,6 +21,7 @@ sources:
             data_tests:
               - unique
               - not_null
+
       - name: salesorderheader
         description: Tabela de fato das vendas/transações da Adventure Works
         columns:
@@ -27,4 +29,44 @@ sources:
             data_tests:
               - unique
               - not_null
+
+      - name: creditcard
+        description: blablabla
+        columns:
+          - name: creditcardid
+            data_tests:
+              - unique
+              - not_null
+
+      - name: salesreason
+        description: blablabla
+        columns:
+          - name: salesreasonid
+            data_tests:
+              - unique
+              - not_null
+
+      - name: salesorderheadersalesreason
+        description: blablabla
+
+      - name: person
+        description: blablabla
+
+      - name: businessentitycontact
+        description: blablabla
+        columns:
+          - name: businessentityid
+            data_tests:
+              - not_null
+
+      - name: customer
+        description: blablabla
+        columns:
+          - name: customerid
+            data_tests:
+              - unique
+              - not_null
+
+        
+
                                   

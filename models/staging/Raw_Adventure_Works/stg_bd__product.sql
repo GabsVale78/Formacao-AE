@@ -7,11 +7,16 @@ with
     , _rename_ as (
         select
             cast(PRODUCTID as int) as pk_product
-            , cast(NAME as varchar) as name_product
-            , cast(PRODUCTNUMBER as varchar) productnumber
             , {{ round_decimals('STANDARDCOST') }} as standardcost
     	    , {{ round_decimals('LISTPRICE') }} as listprice
-            --, cast(DISCONTINUEDDATE as date) as discontinueddate
+            , cast(NAME as varchar) as name_product
+            , cast(PRODUCTNUMBER as varchar) productnumber
+            , case 
+                when DISCONTINUEDDATE is NULL then false
+                else true
+            end as is_discontinued
+            , cast(MODIFIEDDATE as date) as modifieddate
+            , current_date as transformeddate
     	    --, cast(MAKEFLAG as varchar) 
             --, cast(FINISHEDGOODSFLAG as varchar) 
             --, cast(COLOR as varchar) 
@@ -30,7 +35,6 @@ with
     	    --, cast(SELLSTARTDATE as varchar) 
     	    --, cast(SELLENDDATE as varchar) 
     	    --, cast(ROWGUID as varchar)
-    	    --, cast(MODIFIEDDATE as varchar)
         from source_product
     )
 

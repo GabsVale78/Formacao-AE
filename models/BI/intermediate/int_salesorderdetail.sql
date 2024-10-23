@@ -1,27 +1,36 @@
 with 
     salesorderdetail as (
         select *
-        from {{ ref('stg_bd_salesorderdetail') }}
+        from {{ ref('stg_bd__salesorderdetail') }}
     )
 
     , product as (
         select *
-        from {{ ref('stg_bd_product') }}
+        from {{ ref('stg_bd__product') }}
     )
 
-    , _join_ as (
+    , joined as (
         select
             salesorderdetail.PK_SALESORDERDETAILID
             , salesorderdetail.FK_SALESORDERID
             , product.name_product
             , salesorderdetail.ORDERQTY
-            , salesorderdetail.SPECIALOFFERID
             , salesorderdetail.UNITPRICE
             , salesorderdetail.UNITPRICEDISCOUNT
+            , salesorderdetail.SPECIALOFFERID
         from salesorderdetail
         left join product
             on salesorderdetail.fk_productid = product.pk_product
-    ) 
+    )
+    
+    , measure as (
+        select 
+            *
+            , {{ round_decimals('orderqty * unitprice') }}  as total_price
+        from joined
+    )
+
+
 
 select *
-from _join_
+from measure
