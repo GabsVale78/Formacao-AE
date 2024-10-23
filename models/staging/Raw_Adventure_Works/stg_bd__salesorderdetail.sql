@@ -10,12 +10,13 @@ with
             , cast(SALESORDERID as int) as fk_salesorderid
             , cast(PRODUCTID as int) as fk_productid
             , cast(ORDERQTY as int) as orderqty
-            , cast(SPECIALOFFERID as int) as specialofferid
             , {{ round_decimals('UNITPRICE') }} as unitprice
-            , {{ round_decimals('UNITPRICEDISCOUNT') }} as UNITPRICEDISCOUNT
+            , {{ round_decimals('UNITPRICEDISCOUNT') }} as unitpricediscount
+            , cast(SPECIALOFFERID as int) as specialofferid
+            , cast(MODIFIEDDATE as date) as modifieddate
+            , current_date as transformeddate
            -- , cast(CARRIERTRACKINGNUMBER as int)
            -- , cast(ROWGUID as int) 
-           -- , cast(MODIFIEDDATE as varchar)
         from source_salesorderdetail
     )
 

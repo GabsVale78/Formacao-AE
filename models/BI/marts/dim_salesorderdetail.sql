@@ -1,2 +1,8 @@
+with 
+    int_salesorderdetail as (
+        select *
+        from {{ ref('int_salesorderdetail') }}
+    )
+
 select *
-from {{ ref('int_salesorderdetail') }}
+from int_salesorderdetail

@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_db__product
+    description: Tabela de preparação dos dados brutos da product.
+    columns:
+      - name: PK_PRODUCT
+        description: Identificador único para cada produto na tabela.
+      - name: NAME_PRODUCT
+        description: Nome do produto, utilizado para identificação e catalogação.
+      - name: PRODUCTNUMBER
+        description: Número de identificação do produto, usado como referência no sistema.
+      - name: STANDARDCOST
+        description: Custo padrão do produto, representando o custo de aquisição ou produção.
+      - name: LISTPRICE
+        description: Preço de venda sugerido do produto, antes de quaisquer descontos ou promoções.
