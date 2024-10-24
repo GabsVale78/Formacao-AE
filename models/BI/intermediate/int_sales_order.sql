@@ -1,10 +1,5 @@
 with
-    credit_card as (
-        select *
-        from {{ ref('stg_bd__creditcard') }}
-    )
-
-    , sales_reason as (
+    sales_order_reason as (
         select *
         from {{ ref('stg_bd__salesorderheadersalesreason') }}
     )
@@ -14,32 +9,37 @@ with
         from {{ ref('stg_bd__salesorderheader') }}
     )
 
+    , int_order_detail as (
+        select *
+        from {{ ref('int_order_detail') }}
+    )
+
     , joined as (
         select
-            sales_order.PK_SALESORDERID
-            , sales_order.FK_CUSTOMERID
-            , sales_order.FK_SALESPERSONID
-            , sales_order.FK_TERRITORYID
-            , sales_order.FK_CREDITCARDID
-            , sales_reason.fk_salesreasonid
-            , sales_order.ORDERDATE_SALESORDERHEADER
-            , sales_order.DUEDATE_SALESORDERHEADER
-            , sales_order.SHIPDATE_SALESORDERHEADER
-            , sales_order.REVISIONNUMBER
-            , sales_order.STATUS_SALESORDERHEADER
-            , sales_order.PURCHASEORDERNUMBER
+            {{ dbt_utils.generate_surrogate_key([
+                'sales_order.FK_SALES_ORDER', 'PK_ORDER_DETAIL', 
+                'PK_PRODUCT', 'FK_SALES_REASON'
+            ]) }} as SK_SALES_ORDER
+            , sales_order.FK_SALES_ORDER
+            , int_order_detail.PK_ORDER_DETAIL as FK_ORDER_DETAIL
+            , int_order_detail.PK_PRODUCT as FK_PRODUCT
+            , sales_order.FK_CUSTOMER
+            , sales_order.FK_SALES_PERSON
+            , sales_order.FK_TERRITORY
+            , sales_order.FK_CREDIT_CARD
+            , sales_order_reason.FK_SALES_REASON
+            , sales_order.ORDER_DATE_SALES_ORDER
+            , sales_order.STATUS_SALES_ORDER
             , sales_order.SUBTOTAL
             , sales_order.TAXAMT
-            , sales_order.FREIGHT
             , sales_order.TOTALDUE
-            --, credit_card.cardtype
             , sales_order.MODIFIEDDATE
             , sales_order.TRANSFORMEDDATE
         from sales_order
-        --left join credit_card
-           -- on sales_order.fk_creditcardid = credit_card.pk_creditcardid
-        left join sales_reason
-            on sales_order.pk_salesorderid = sales_reason.fk_salesorderid 
+        left join int_order_detail
+            on sales_order.fk_sales_order = int_order_detail.fk_sales_order
+        left join sales_order_reason
+            on sales_order.fk_sales_order = sales_order_reason.fk_sales_order
     )
 
 select *
