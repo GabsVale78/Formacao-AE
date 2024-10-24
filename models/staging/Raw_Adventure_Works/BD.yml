@@ -86,3 +86,18 @@ sources:
               - unique
               - not_null
           
+      - name: productsubcategory
+        description: blablabla
+        columns:
+          - name: productsubcategoryid
+            data_tests:
+              - unique
+              - not_null
+
+      - name: productcategory
+        description: blablabla
+        columns:
+          - name: productcategoryid
+            data_tests:
+              - unique
+              - not_null

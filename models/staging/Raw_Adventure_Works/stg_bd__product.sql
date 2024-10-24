@@ -7,6 +7,7 @@ with
     , _rename_ as (
         select
             cast(PRODUCTID as int) as pk_product
+            , cast(PRODUCTSUBCATEGORYID as varchar) as fk_product_subcategory 
             , {{ round_decimals('STANDARDCOST') }} as standard_cost
     	    , {{ round_decimals('LISTPRICE') }} as list_price
             , cast(NAME as varchar) as name_product
@@ -30,7 +31,6 @@ with
     	    --, cast(PRODUCTLINE as varchar) 
     	    --, cast(CLASS as varchar) 
     	    --, cast(STYLE as varchar) 
-    	    --, cast(PRODUCTSUBCATEGORYID as varchar) 
     	    --, cast(PRODUCTMODELID as varchar) 
     	    --, cast(SELLSTARTDATE as varchar) 
     	    --, cast(SELLENDDATE as varchar) 

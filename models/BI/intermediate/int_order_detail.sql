@@ -13,7 +13,7 @@ with
         select
             order_detail.PK_ORDER_DETAIL
             , order_detail.FK_SALES_ORDER
-            , product.PK_PRODUCT
+            , product.PK_PRODUCT as FK_PRODUCT
             , order_detail.order_qty
             , order_detail.UNIT_PRICE
             , order_detail.DISCOUNT

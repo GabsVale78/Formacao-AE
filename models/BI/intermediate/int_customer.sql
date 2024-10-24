@@ -22,4 +22,3 @@ with
 
 select *
 from joined
-
