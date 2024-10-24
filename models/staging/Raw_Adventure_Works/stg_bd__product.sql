@@ -7,10 +7,10 @@ with
     , _rename_ as (
         select
             cast(PRODUCTID as int) as pk_product
-            , {{ round_decimals('STANDARDCOST') }} as standardcost
-    	    , {{ round_decimals('LISTPRICE') }} as listprice
+            , {{ round_decimals('STANDARDCOST') }} as standard_cost
+    	    , {{ round_decimals('LISTPRICE') }} as list_price
             , cast(NAME as varchar) as name_product
-            , cast(PRODUCTNUMBER as varchar) productnumber
+            , cast(PRODUCTNUMBER as varchar) product_number
             , case 
                 when DISCONTINUEDDATE is NULL then false
                 else true

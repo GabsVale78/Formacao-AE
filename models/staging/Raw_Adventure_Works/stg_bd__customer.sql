@@ -6,10 +6,10 @@ with
 
     , _rename_ as (
         select
-            cast(CUSTOMERID as int) as pk_customerid
-            , cast(PERSONID as int) as  fk_personid
-            , cast(STOREID as int) as fk_storeid
-            , cast(TERRITORYID as int) as fk_territoryid
+            cast(CUSTOMERID as int) as pk_customer
+            , cast(PERSONID as int) as  fk_person
+            , cast(STOREID as int) as fk_store
+            , cast(TERRITORYID as int) as fk_territory
             , cast(MODIFIEDDATE as date) as modifieddate
             , current_date as transformeddate
         from source_customer

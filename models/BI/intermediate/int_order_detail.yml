@@ -4,7 +4,7 @@ models:
   - name: int_order_detail
     description: Tabela intermediaria para trazer o nome do produto no lugar do productid
     columns:
-      - name: PK_SALESORDERDETAILID
+      - name: PK_ORDER_DETAIL
         description: Identificador único para cada registro de detalhe de pedido.
         data_tests:
           - unique

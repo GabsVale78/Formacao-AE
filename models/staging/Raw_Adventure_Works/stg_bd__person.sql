@@ -6,8 +6,8 @@ with
 
     , _rename_ as (
         select
-            cast(BUSINESSENTITYID as int) as fk_businessentityid_person
-            , cast(PERSONTYPE as varchar) as persontype
+            cast(BUSINESSENTITYID as int) as fk_businessentity_person
+            , cast(PERSONTYPE as varchar) as person_type
             , FIRSTNAME || ' ' || LASTNAME as name_person
             , cast(MODIFIEDDATE as date) as modifieddate
             , current_date as transformeddate
