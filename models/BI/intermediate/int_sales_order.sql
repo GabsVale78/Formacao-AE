@@ -17,12 +17,12 @@ with
     , joined as (
         select
             {{ dbt_utils.generate_surrogate_key([
-                'sales_order.FK_SALES_ORDER', 'PK_ORDER_DETAIL', 
-                'PK_PRODUCT', 'FK_SALES_REASON'
+                'sales_order.FK_SALES_ORDER', 'int_order_detail.PK_ORDER_DETAIL', 
+                'int_order_detail.FK_PRODUCT', 'sales_order_reason.FK_SALES_REASON'
             ]) }} as SK_SALES_ORDER
             , sales_order.FK_SALES_ORDER
             , int_order_detail.PK_ORDER_DETAIL as FK_ORDER_DETAIL
-            , int_order_detail.PK_PRODUCT as FK_PRODUCT
+            , int_order_detail.FK_PRODUCT
             , sales_order.FK_CUSTOMER
             , sales_order.FK_SALES_PERSON
             , sales_order.FK_TERRITORY
