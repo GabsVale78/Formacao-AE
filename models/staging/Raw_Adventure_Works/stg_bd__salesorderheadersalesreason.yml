@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_bd__salesorderheadersalesreason
+    description: Tabela que relaciona sales_order com sales_reason.
+    columns:
+      - name: FK_SALES_ORDER
+        description: Chave estrangeira que referencia a sales_order.
+      - name: FK_SALES_REASON
+        description: Chave estrangeira que referencia a sales_reason.
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.

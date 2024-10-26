@@ -133,3 +133,6 @@ sources:
             data_tests:
               - unique
               - not_null
+      - name: salesorderheadersalesreason
+        description: Tabela "DE-PARA" salesorderid e salesreasonid
+
