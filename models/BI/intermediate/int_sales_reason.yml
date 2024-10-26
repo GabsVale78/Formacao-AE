@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: int_sales_reason
+    description: Tabela de informações sobre as razões de vendas.

@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: dim_credit_card
+    description: Dimensão com dados para identificação dos tipos de cartões usados nas vendas.
+    columns:
+      - name: PK_CREDIT_CARD
+        description: Identificador único do cartão de crédito.
+      - name: CARD_TYPE
+        description: Tipo do cartão utilizado.
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.

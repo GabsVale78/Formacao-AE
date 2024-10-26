@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_bd__purchaseorderheader
+    description: Tabela de pedidos de compra, incluindo status, datas e valores totais.
+    columns:
+      - name: PK_PURCHASE_ORDER
+        description: Chave primária que identifica de forma única cada pedido de compra na tabela.
+      - name: STATUS_PURCHASE
+        description: Status atual do pedido de compra, indicando se está pendente, concluído, cancelado, etc.
+      - name: ORDER_DATE_PURCHASE
+        description: Data em que o pedido de compra foi realizado, importante para rastreamento e planejamento de compras.
+      - name: SUBTOTAL_PURCHASE
+        description: Valor subtotal do pedido.
+      - name: TAXAMT_PURCHASE
+        description: Valor total de impostos aplicados ao pedido de compra.
+      - name: FREIGHT_PURCHASE
+        description: Custo de frete associado ao pedido de compra.
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.

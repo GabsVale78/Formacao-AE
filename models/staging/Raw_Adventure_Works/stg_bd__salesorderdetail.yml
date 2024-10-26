@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: stg_bd__salesorderdetail
-    description: Tabela de preparação dos dados brutos da salesorderdetail, contendo detalhes de cada pedido realizado.
+    description: Tabela de preparação dos dados brutos, contendo detalhes de cada pedido realizado.
     columns:
       - name: PK_SALESORDERDETAILID
         description: Identificador único para cada registro de detalhe de pedido.

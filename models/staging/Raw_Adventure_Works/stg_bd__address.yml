@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_bd__address
+    description: Tabela de informações sobre endereços.
+    columns:
+      - name: PK_ADDRESS
+        description: Chave primária que identifica de forma única cada endereço na tabela.
+      - name: FK_STATE_PROVINCE
+        description: Chave estrangeira que referencia a tabela de estados, associando o endereço a uma localidade específica.
+      - name: CITY_ADDRESS
+        description: Nome da cidade onde o endereço está localizado.
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.
+

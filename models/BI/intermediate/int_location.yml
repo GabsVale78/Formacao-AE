@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: int_location
+    description: Tabela de dados de localização como país, cidade e estado.

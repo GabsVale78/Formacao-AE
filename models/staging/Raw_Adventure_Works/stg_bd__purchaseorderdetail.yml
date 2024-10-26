@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: stg_bd__purchaseorderdetail
+    description: Tabela com dados de pedidos de compra.
+    columns:
+      - name: PK_PURCHASE_DETAIL
+        description: Chave primária que identifica de forma única cada detalhe de pedido de compra na tabela.
+      - name: FK_PURCHASE_ORDER
+        description: Chave estrangeira que referencia o pedido de compra associado, ligando os detalhes ao pedido principal.
+      - name: FK_PRODUCT
+        description: Chave estrangeira que referencia o produto comprado, permitindo a identificação do item específico na transação.
+      - name: DUE_DATE_PURCHASE
+        description: Data em que o pedido deve ser entregue.
+      - name: ORDER_QTY_PURCHASE
+        description: Quantidade de produtos solicitados no pedido de compra.
+      - name: RECEIVED_QTY_PURCHASE
+        description: Quantidade de produtos efetivamente recebidos.
+      - name: UNIT_PRICE_PURCHASE
+        description: Preço unitário do produto adquirido.
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.

@@ -10,6 +10,7 @@ with
             , cast(PRODUCTSUBCATEGORYID as varchar) as fk_product_subcategory 
             , {{ round_decimals('STANDARDCOST') }} as standard_cost
     	    , {{ round_decimals('LISTPRICE') }} as list_price
+            , cast(DAYSTOMANUFACTURE as int) as day_manufacture
             , cast(NAME as varchar) as name_product
             , cast(PRODUCTNUMBER as varchar) product_number
             , case 
@@ -27,7 +28,6 @@ with
     	    --, cast(SIZEUNITMEASURECODE as varchar) 
     	    --, cast(WEIGHTUNITMEASURECODE as varchar) 
     	    --, cast(WEIGHT as varchar) 
-    	    --, cast(DAYSTOMANUFACTURE as varchar)
     	    --, cast(PRODUCTLINE as varchar) 
     	    --, cast(CLASS as varchar) 
     	    --, cast(STYLE as varchar) 

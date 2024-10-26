@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: dim_location
+    description: Dimensão que armazena informações sobre endereços e locais.
+    columns:
+      - name: PK_ADDRESS
+        description: Identificador único do endereço.
+      - name: FK_TERRITORY
+        description: Chave estrangeira que referencia aos dados de territórios.        
+      - name: CITY_ADDRESS
+        description: Nome da cidade do endereço.
+      - name: STATE_CODE
+        description: Código do estado relacionado ao nome do estado.
+      - name: NAME_STATEPROVINCE
+        description: Nome do estado ou província.
+      - name: NAME_COUNTRYREGION
+        description: Nome do país ou região.
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.

@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_bd__stateprovince
+    description: Tabela sobre estados e províncias, incluindo associações geográficas e nomenclaturas.
+    columns:
+      - name: PK_STATE_PROVINCE
+        description: Chave primária que identifica de forma única cada estado ou província na tabela.
+      - name: FK_TERRITORY
+        description: Chave estrangeira que referencia o território ao qual o estado ou província pertence, ajudando na categorização geográfica.
+      - name: FK_COUNTRY_CODE
+        description: Chave estrangeira que referencia o país associado, permitindo a ligação entre estados/províncias e suas nações.
+      - name: STATE_CODE
+        description: Código do estado ou província, utilizado para identificação rápida e sistemática em registros.
+      - name: NAME_STATEPROVINCE
+        description: Nome do estado ou província, utilizado para identificação e referência em documentação e relatórios.
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.
