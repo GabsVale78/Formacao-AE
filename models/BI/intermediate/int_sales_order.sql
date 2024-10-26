@@ -1,6 +1,11 @@
 with
 
-    sales_reason as (
+    sales_order_reason as (
+        select *
+        from {{ ref('stg_bd__salesorderheadersalesreason') }}
+    )
+    
+    , sales_reason as (
         select *
         from {{ ref('stg_bd__salesreason') }}
     )
@@ -20,6 +25,17 @@ with
         from {{ ref('status') }}
     )
 
+    , joined1 as (
+        select
+            sales_reason.PK_SALES_REASON
+            , sales_reason.NAME_SALES_REASON
+            , sales_reason.REASON_TYPE
+            , sales_order_reason.FK_SALES_ORDER
+        from sales_order_reason
+        left join sales_reason
+            on sales_order_reason.fk_sales_reason = sales_reason.pk_sales_reason
+    )
+
     , joined as (
         select
             sales_order.PK_SALES_ORDER
@@ -29,7 +45,8 @@ with
             , sales_order.FK_SALES_PERSON
             , sales_order.FK_TERRITORY
             , sales_order.FK_CREDIT_CARD
-            , sales_reason.REASON_TYPE
+            , joined1.NAME_SALES_REASON
+            , joined1.REASON_TYPE
             , sales_order.ORDER_DATE_SALES_ORDER
             , int_order_detail.ORDER_QTY
             , int_order_detail.UNIT_PRICE
@@ -45,8 +62,8 @@ with
         from sales_order
         left join int_order_detail
             on sales_order.pk_sales_order = int_order_detail.fk_sales_order
-        left join sales_reason
-            on sales_order.pk_sales_order = sales_reason.PK_SALES_REASON
+        left join joined1
+            on sales_order.pk_sales_order = joined1.fk_sales_order
         left join status 
             on sales_order.status_sales_order = status.status
     )
@@ -74,7 +91,6 @@ with
             , FK_SALES_PERSON
             , FK_TERRITORY
             , FK_CREDIT_CARD
-            , REASON_TYPE
             , ORDER_DATE_SALES_ORDER
             , ORDER_QTY
             , UNIT_PRICE
@@ -86,6 +102,8 @@ with
             , TOTALDUE_SALES_ORDER
             , NET_SALES
             , IS_DISCOUNTED
+            , NAME_SALES_REASON
+            , REASON_TYPE
             , NAME_STATUS
             , MODIFIEDDATE
             , TRANSFORMEDDATE  

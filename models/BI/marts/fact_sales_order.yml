@@ -18,8 +18,6 @@ models:
         description: Chave estrangeira que indica o território de vendas associado ao pedido.
       - name: FK_CREDIT_CARD
         description: Chave estrangeira que referencia a dim_credit_card.
-      - name: REASON_TYPE
-        description: Tipo de razão para a venda .
       - name: ORDER_DATE_SALES_ORDER
         description: Data em que o pedido de venda foi realizado.
       - name: ORDER_QTY
@@ -32,6 +30,12 @@ models:
         description: Preço total do pedido, após aplicar descontos.
       - name: SUBTOTAL_SALES_ORDER
         description: Total antes de descontos e impostos, representando o valor dos produtos vendidos.
+      - name: IS_DISCOUNTED
+        description: Indica se o pedido recebeu desconto (booleano).
+      - name: NAME_SALES_REASON
+        description: Nome da razão pela qual a venda foi realizada.
+      - name: REASON_TYPE
+        description: Tipo de razão para a venda.
       - name: MODIFIEDDATE
         description: Data e hora da última modificação.
       - name: TRANSFORMEDDATE
