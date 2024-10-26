@@ -7,7 +7,7 @@ sources:
     schema: RAW_ADVENTURE_WORKS   
     tables:
       - name: salesorderdetail
-        description: Tabela de detalhamento das ordens de vendas da Adventure Works
+        description: Detalhes das ordens de vendas da Adventure Works
         columns:
           - name: salesorderdetailid
             data_tests:
@@ -15,7 +15,7 @@ sources:
               - not_null
 
       - name: product
-        description: Tabela de produtos da Adventure Works
+        description: Informações sobre os produtos da Adventure Works
         columns:
           - name: productid
             data_tests:
@@ -23,7 +23,7 @@ sources:
               - not_null
 
       - name: salesorderheader
-        description: Tabela de fato das vendas/transações da Adventure Works
+        description: Cabeçalho das transações de vendas da Adventure Works
         columns:
           - name: salesorderid
             data_tests:
@@ -31,7 +31,7 @@ sources:
               - not_null
 
       - name: creditcard
-        description: blablabla
+        description: Informações dos cartões de crédito utilizados nas compras
         columns:
           - name: creditcardid
             data_tests:
@@ -39,28 +39,30 @@ sources:
               - not_null
 
       - name: salesreason
-        description: blablabla
+        description: Razões de vendas registradas
         columns:
           - name: salesreasonid
             data_tests:
               - unique
               - not_null
 
-      - name: salesorderheadersalesreason
-        description: blablabla
-
       - name: person
-        description: blablabla
+        description: Informações sobre as pessoas relacionadas a vendas
+        columns:
+          - name: businessentityid
+            data_tests:
+              - unique
+              - not_null
 
       - name: businessentitycontact
-        description: blablabla
+        description: Contatos relacionados a entidades de negócios
         columns:
           - name: businessentityid
             data_tests:
               - not_null
 
       - name: customer
-        description: blablabla
+        description: Dados dos clientes da Adventure Works
         columns:
           - name: customerid
             data_tests:
@@ -68,10 +70,15 @@ sources:
               - not_null
 
       - name: countryregion
-        description: blablabla
-
+        description: Informações sobre países e regiões
+        columns:
+          - name: countryregioncode
+            data_tests:
+              - unique
+              - not_null
+      
       - name: address
-        description: blablabla
+        description: Endereços relacionados às transações
         columns:
           - name: addressid
             data_tests:
@@ -79,7 +86,7 @@ sources:
               - not_null
 
       - name: stateprovince
-        description: blablabla
+        description: Dados sobre estados e províncias
         columns:
           - name: stateprovinceid
             data_tests:
@@ -87,7 +94,7 @@ sources:
               - not_null
           
       - name: productsubcategory
-        description: blablabla
+        description: Subcategorias de produtos
         columns:
           - name: productsubcategoryid
             data_tests:
@@ -95,7 +102,7 @@ sources:
               - not_null
 
       - name: productcategory
-        description: blablabla
+        description: Categorias de produtos
         columns:
           - name: productcategoryid
             data_tests:
@@ -103,7 +110,7 @@ sources:
               - not_null
               
       - name: purchaseorderdetail
-        description: blablabla
+        description: Detalhes dos pedidos de compra
         columns:
           - name: purchaseorderdetailid
             quote: true
@@ -112,7 +119,7 @@ sources:
               - not_null     
               
       - name: purchaseorderheader
-        description: blablabla
+        description: ordem de compra
         columns:
           - name: purchaseorderid
             data_tests:
@@ -120,7 +127,7 @@ sources:
               - not_null
 
       - name: salesterritory
-        description: blablabla
+        description: Territórios de vendas
         columns:
           - name: territoryid
             data_tests:
