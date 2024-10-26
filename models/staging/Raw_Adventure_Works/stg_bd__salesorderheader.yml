@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_bd__salesorderheader
+    description: Modelo que armazena informações sobre ordem de venda.
+    columns:
+      - name: PK_SALES_ORDER
+        description: Chave estrangeira que identifica a ordem de vendas.
+      - name: FK_CUSTOMER
+        description: Chave estrangeira que associa o pedido a um cliente.
+      - name: FK_SALES_PERSON
+        description: Chave estrangeira do nome do cliente sobre cada compra.
+      - name: FK_TERRITORY
+        description: Chave estrangeira que indica a região de vendas.
+      - name: FK_CREDIT_CARD
+        description: Chave estrangeira que vincula o pagamento ao cartão de crédito.
+      - name: ORDER_DATE_SALES_ORDER
+        description: Data em que o pedido foi realizado.
+      - name: STATUS_SALES_ORDER
+        description: Status de processamento do pedido.
+      - name: SUBTOTAL_SALES_ORDER
+        description: Valor dos itens antes de impostos e frete.
+      - name: TAXAMT_SALES_ORDER
+        description: Valor total dos impostos do pedido.
+      - name: TOTALDUE_SALES_ORDER
+        description: Valor total a ser pago pelo cliente.
+      - name: FREIGHT_SALES_ORDER
+        description: Custo de envio do pedido.
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.

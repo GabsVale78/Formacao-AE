@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_bd__businessentitycontact
+    description: Tabela de entidades de negócios/contatos e tipos de contato.
+    columns:
+      - name: PK_BUSINESS_ENTITY
+        description: Chave primária que identifica de forma única cada entidade de negócio na tabela.
+      - name: FK_PERSON
+        description: Chave estrangeira que referencia a tabela de pessoas, indicando o contato associado à entidade de negócio.
+      - name: FK_CONTACT_TYPE
+        description: Chave estrangeira que indica o tipo de contato relacionado à entidade de negócio.
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.

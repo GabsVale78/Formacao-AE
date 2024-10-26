@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_bd__customer
+    description: Tabela de clientes, incluindo suas associações com pessoas, lojas e territórios.
+    columns:
+      - name: PK_CUSTOMER
+        description: Chave primária que identifica de forma única cada cliente na tabela.
+      - name: FK_PERSON
+        description: Chave estrangeira que referencia a tabela de pessoas.
+      - name: FK_STORE
+        description: Chave estrangeira que indica a loja à qual o cliente está associado.
+      - name: FK_TERRITORY
+        description: Chave estrangeira que referencia o território de venda, ajudando a categorizar os clientes por localização geográfica.
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.

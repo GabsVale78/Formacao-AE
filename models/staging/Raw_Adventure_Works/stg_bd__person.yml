@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_bd__person
+    description: Tabela sobre informações de indivíduos, incluindo seus nomes.
+    columns:
+      - name: PK_PERSON
+        description: Chave primária que identifica de forma única cada pessoa na tabela.
+      - name: PERSON_TYPE
+        description: Tipo da pessoa, que pode indicar categorias.
+      - name: NAME_PERSON
+        description: Nome completo da pessoa.
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.

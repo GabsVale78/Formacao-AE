@@ -2,15 +2,25 @@ version: 2
 
 models:
   - name: stg_db__product
-    description: Tabela de preparação dos dados brutos da product.
+    description: Tabela de informações detalhadas sobre produtos.
     columns:
       - name: PK_PRODUCT
-        description: Identificador único para cada produto na tabela.
+        description: Chave primária que identifica de forma única cada produto na tabela.
+      - name: FK_PRODUCT_SUBCATEGORY
+        description: Chave estrangeira que referencia a subcategoria do produto, permitindo categorizar os produtos de forma mais específica.
+      - name: STANDARD_COST
+        description: Custo padrão do produto, utilizado para cálculos de margem e análise de custos.
+      - name: LIST_PRICE
+        description: Preço de venda sugerido do produto, que pode ser utilizado para transações comerciais.
+      - name: DAY_MANUFACTURE
+        description: Total de dias para fabricação.
       - name: NAME_PRODUCT
-        description: Nome do produto, utilizado para identificação e catalogação.
-      - name: PRODUCTNUMBER
-        description: Número de identificação do produto, usado como referência no sistema.
-      - name: STANDARDCOST
-        description: Custo padrão do produto, representando o custo de aquisição ou produção.
-      - name: LISTPRICE
-        description: Preço de venda sugerido do produto, antes de quaisquer descontos ou promoções.
+        description: Nome do produto, utilizado para identificação e marketing.
+      - name: PRODUCT_NUMBER
+        description: Número do produto, que pode ser um código interno ou SKU, utilizado para controle de inventário.
+      - name: IS_DISCONTINUED
+        description: Indicador que informa se o produto foi descontinuado, ajudando na gestão de estoque e oferta.
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.

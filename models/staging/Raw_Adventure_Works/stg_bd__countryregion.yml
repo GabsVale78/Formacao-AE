@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_bd__countryregion
+    description: Tabela de países e regiões, incluindo códigos e nomes correspondentes.
+    columns:
+      - name: PK_COUNTRY_CODE
+        description: Chave primária que identifica de forma única cada país ou região na tabela.
+      - name: NAME_COUNTRYREGION
+        description: Nome do país ou região associado ao código, utilizado para identificação legível.
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.

@@ -27,6 +27,9 @@ with
     , joined2 as (
         select
             product.PK_PRODUCT
+            , product.STANDARD_COST
+            , product.LIST_PRICE
+            , product.DAY_MANUFACTURE
             , product.NAME_PRODUCT
             , joined.NAME_PRODUCT_CATEGORY
             , product.IS_DISCONTINUED

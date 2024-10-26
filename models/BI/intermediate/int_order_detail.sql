@@ -9,6 +9,7 @@ with
         from {{ ref('stg_bd__product') }}
     )
 
+
     , joined as (
         select
             order_detail.PK_ORDER_DETAIL
@@ -17,6 +18,8 @@ with
             , order_detail.order_qty
             , order_detail.UNIT_PRICE
             , order_detail.DISCOUNT
+            , order_detail.MODIFIEDDATE
+            , order_detail.TRANSFORMEDDATE
         from order_detail
         left join product
             on order_detail.fk_product = product.pk_product
@@ -29,7 +32,20 @@ with
         from joined
     )
 
+    , final_select as (
+       select
+            PK_ORDER_DETAIL
+            , FK_SALES_ORDER
+            , FK_PRODUCT
+            , ORDER_QTY
+            , UNIT_PRICE
+            , DISCOUNT
+            , TOTAL_PRICE
+            , MODIFIEDDATE
+            , TRANSFORMEDDATE
+        from measure
+    )
 
 
 select *
-from measure
+from final_select

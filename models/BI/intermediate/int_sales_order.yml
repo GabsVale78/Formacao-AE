@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: int_sales_order
+    description: Modelo que armazena informações sobre ordem de venda.
+    columns:
+      - name: PRORATED_TAXAMT
+        description: Valor do imposto proporcional ao subtotal do pedido.
+      - name: PRORATED_FREIGHT
+        description: Custo de frete proporcional ao subtotal do pedido.
+      - name: NET_SALES
+        description: Valor total de vendas após descontos e ajustes.
+      - name: IS_DISCOUNTED
+        description: Indica se o pedido recebeu desconto.
+      - name: NAME_STATUS
+        description: Status final de processamento da ordem de venda.

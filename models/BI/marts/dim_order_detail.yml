@@ -2,25 +2,23 @@ version: 2
 
 models:
   - name: dim_order_detail
-    description: Tabela intermediaria para trazer o nome do produto no lugar do productid
+    description: Dimensão que contém detalhes sobre os pedidos, quantidades e preços.
     columns:
-      - name: PK_SALESORDERDETAILID
-        description: Identificador único para cada registro de detalhe de pedido.
-
-      - name: FK_SALESORDERID
-        description: Identificador do pedido associado, referenciando a tabela de pedidos.
-
-      - name: NOME_PRODUCT
-        description: Nome do produto associado ao detalhe do pedido, facilitando a identificação do item vendido.
-
-      - name: ORDERQTY
+      - name: PK_ORDER_DETAIL
+        description: Identificador único para cada detalhe de pedido.
+      - name: FK_SALES_ORDER
+        description: Chave estrangeira que referencia o pedido de venda ao qual este detalhe pertence.
+      - name: FK_PRODUCT
+        description: Chave estrangeira que referencia o produto associado a este detalhe de pedido.
+      - name: ORDER_QTY
         description: Quantidade do produto solicitada no pedido.
-
-      - name: SPECIALOFFERID
-        description: Identificador da oferta especial aplicada ao pedido, se houver.
-
-      - name: UNITPRICE
-        description: Preço unitário do produto no momento da venda.
-
-      - name: UNITPRICEDISCOUNT
-        description: Desconto aplicado ao preço unitário do produto, se houver.
+      - name: UNIT_PRICE
+        description: Preço unitário do produto no momento do pedido.
+      - name: DISCOUNT
+        description: Valor do desconto aplicado ao produto, caso haja, durante a transação.
+      - name: TOTAL_PRICE
+        description: Preço total do item, calculado como (ORDER_QTY * UNIT_PRICE).
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.

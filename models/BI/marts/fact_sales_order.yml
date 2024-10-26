@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: fact_sales_order
+    description: Tabela fato que armazena informações sobre vendas, conectando-se com dimensões de product, location, customer e order_detail
+    columns:
+      - name: PK_SALES_ORDER
+        description: Identificador único para cada pedido de venda.
+      - name: FK_ORDER_DETAIL
+        description: Chave estrangeira que referencia dim_order_detail.
+      - name: FK_PRODUCT
+        description: Chave estrangeira que referencia a dim_product.
+      - name: FK_CUSTOMER
+        description: Chave estrangeira que referencia a dim_customer.
+      - name: FK_SALES_PERSON
+        description: Chave estrangeira que referencia o vendedor responsável pela venda.
+      - name: FK_TERRITORY
+        description: Chave estrangeira que indica o território de vendas associado ao pedido.
+      - name: FK_CREDIT_CARD
+        description: Chave estrangeira que referencia a dim_credit_card.
+      - name: REASON_TYPE
+        description: Tipo de razão para a venda .
+      - name: ORDER_DATE_SALES_ORDER
+        description: Data em que o pedido de venda foi realizado.
+      - name: ORDER_QTY
+        description: Quantidade do produto vendida.
+      - name: UNIT_PRICE
+        description: Preço unitário do produto na venda.
+      - name: DISCOUNT
+        description: Valor do desconto aplicado ao pedido de venda.
+      - name: TOTAL_PRICE
+        description: Preço total do pedido, após aplicar descontos.
+      - name: SUBTOTAL_SALES_ORDER
+        description: Total antes de descontos e impostos, representando o valor dos produtos vendidos.
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.

@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_bd__productsubcategory
+    description: Tabela sobre subcategorias de produtos.
+    columns:
+      - name: PK_PRODUCT_SUBCATEGORY
+        description: Chave primária que identifica de forma única cada subcategoria de produto na tabela.
+      - name: FK_PRODUCT_CATEGORY
+        description: Chave estrangeira que referencia a categoria principal à qual a subcategoria pertence.
+      - name: NAME_PRODUCT_SUBCATEGORY
+        description: Nome da subcategoria do produto.
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.

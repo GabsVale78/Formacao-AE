@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_bd__creditcard
+    description: Tabela sobre dados de cartões de crédito utilizados.
+    columns:
+      - name: PK_CREDIT_CARD
+        description: Chave primária que identifica de forma única cada cartão de crédito na tabela.
+      - name: CARD_TYPE
+        description: Tipo do cartão de crédito.
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.

@@ -6,21 +6,21 @@ with
 
     , _rename_ as (
         select
-            cast(SALESORDERID as int) as fk_sales_order
+            cast(SALESORDERID as int) as pk_sales_order
             , cast(CUSTOMERID as int) as fk_customer
             , cast(SALESPERSONID as int) as fk_sales_person
             , cast(TERRITORYID as int) as fk_territory
             , cast(CREDITCARDID as int) as fk_credit_card
             , cast(ORDERDATE as date) as order_date_sales_order
             , cast(STATUS as int) as status_sales_order
-            , {{ round_decimals('SUBTOTAL') }} as subtotal
-            , {{ round_decimals('TAXAMT') }} as taxamt
-            , {{ round_decimals('TOTALDUE') }} as totaldue
+            , {{ round_decimals('SUBTOTAL') }} as subtotal_sales_order
+            , {{ round_decimals('TAXAMT') }} as taxamt_sales_order
+            , {{ round_decimals('TOTALDUE') }} as totaldue_sales_order
+            , {{ round_decimals('FREIGHT') }} as freight_sales_order
             , cast(MODIFIEDDATE as date) as modifieddate
             , current_date as transformeddate
             --, cast(SHIPDATE as date) as ship_date_sales_order
             --, cast(DUEDATE as date) as due_date_sales_order
-            --, cast(FREIGHT as int) as freight
             --, cast(REVISIONNUMBER as int) as revision_number
             --, cast(PURCHASEORDERNUMBER as varchar) as purchase_order_number
             --, cast(COMMENT as varchar) as

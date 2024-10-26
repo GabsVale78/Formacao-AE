@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_bd__salesterritory
+    description: Tabela sobre os territórios de vendas.
+    columns:
+      - name: PK_TERRITORY
+        description: Identificador único do território de vendas.
+      - name: COUNTRY_REGION_TERRITORY
+        description: Nome do país ou região associada ao território de vendas.
+      - name: COUNTRY_REGION_CODE_TERRITORY
+        description: Código padrão que representa o país ou região do território de vendas.
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.

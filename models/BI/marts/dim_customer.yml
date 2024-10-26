@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: Dimensão de clientes com seus respectivos nomes.
+    columns:
+      - name: PK_CUSTOMER
+        description: Identificador único do cliente.
+      - name: NAME_PERSON
+        description: Primeiro e último nome do cliente.
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.

@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: dim_product
+    description: Dimensão com dados sobre o catalago de produtos disponíveis
+    columns:
+      - name: PK_PRODUCT
+        description: Identificador único para cada produto.
+      - name: STANDARD_COST
+        description: Custo padrão do produto.
+      - name: LIST_PRICE
+        description: Preço sugerido de venda do produto ao consumidor, antes de qualquer desconto.
+      - name: DAY_MANUFACTURE
+        description: Tempo em dias de fabricação do produto.
+      - name: NAME_PRODUCT
+        description: Nome descritivo do produto.
+      - name: IS_DISCONTINUED
+        description: Indica se o produto foi descontinuado (true) ou se está ativo (false).
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.
+
+

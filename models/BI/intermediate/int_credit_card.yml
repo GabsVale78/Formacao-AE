@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: int_credit_card
+    description: Tabela sobre dados de cartões de crédito utilizados.

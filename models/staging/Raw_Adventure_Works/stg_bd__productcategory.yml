@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_bd__productcategory
+    description: Tabela sobre categorias de produtos.
+    columns:
+      - name: PK_PRODUCT_CATEGORY
+        description: Chave primária que identifica de forma única cada categoria de produto na tabela.
+      - name: NAME_PRODUCT_CATEGORY
+        description: Nome da categoria do produto.
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.

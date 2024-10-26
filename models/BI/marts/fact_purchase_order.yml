@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: fact_purchase_order
+    description: Tabela fato que armazena informações sobre pedidos de compra.
+    columns:
+      - name: PK_PURCHASE_ORDER
+        description: Identificador único para cada pedido de compra.
+      - name: ORDER_DATE_PURCHASE
+        description: Data em que o pedido de compra foi realizado.
+      - name: SUBTOTAL_PURCHASE
+        description: Total antes de impostos e frete.
+      - name: TAXAMT_PURCHASE
+        description: Valor do imposto aplicado ao pedido de compra.
+      - name: FREIGHT_PURCHASE
+        description: Custo do frete associado ao pedido de compra.
+      - name: NAME_STATUS
+        description: Status do pedido de compra.
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.

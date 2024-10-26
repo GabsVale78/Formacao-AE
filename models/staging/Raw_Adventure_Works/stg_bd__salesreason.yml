@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_bd__salesreason
+    description: Tabela de informações sobre as razões de vendas, facilitando a análise de motivos que influenciam as transações comerciais.
+    columns:
+      - name: PK_SALES_REASON
+        description: Chave primária que identifica de forma única cada razão de venda na tabela.
+      - name: NAME_SALES_REASON
+        description: Nome da razão de venda, utilizado para identificação e categorização em relatórios.
+      - name: REASON_TYPE
+        description: Tipo da razão de venda.
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.
