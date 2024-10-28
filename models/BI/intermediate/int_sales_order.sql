@@ -27,25 +27,26 @@ with
 
     , joined1 as (
         select
-            sales_reason.PK_SALES_REASON
-            , sales_reason.NAME_SALES_REASON
+            sales_order.pk_sales_order
             , sales_reason.REASON_TYPE
-            , sales_order_reason.FK_SALES_ORDER
-        from sales_order_reason
+        from sales_order
+        left join sales_order_reason
+            on sales_order.pk_sales_order = sales_order_reason.fk_sales_order
         left join sales_reason
             on sales_order_reason.fk_sales_reason = sales_reason.pk_sales_reason
+
     )
 
     , joined as (
         select
-            sales_order.PK_SALES_ORDER
-            , int_order_detail.PK_ORDER_DETAIL as FK_ORDER_DETAIL
+            int_order_detail.PK_ORDER_DETAIL
+            , sales_order.PK_SALES_ORDER as FK_SALES_ORDER
             , int_order_detail.FK_PRODUCT
             , sales_order.FK_CUSTOMER
             , sales_order.FK_SALES_PERSON
             , sales_order.FK_TERRITORY
+            , sales_order.FK_SHIP_ADDRESS
             , sales_order.FK_CREDIT_CARD
-            , joined1.NAME_SALES_REASON
             , joined1.REASON_TYPE
             , sales_order.ORDER_DATE_SALES_ORDER
             , int_order_detail.ORDER_QTY
@@ -59,11 +60,11 @@ with
             , status.NAME_STATUS
             , sales_order.MODIFIEDDATE
             , sales_order.TRANSFORMEDDATE
-        from sales_order
-        left join int_order_detail
-            on sales_order.pk_sales_order = int_order_detail.fk_sales_order
+        from int_order_detail
+        left join sales_order 
+            on int_order_detail.FK_SALES_ORDER = sales_order.PK_SALES_ORDER
         left join joined1
-            on sales_order.pk_sales_order = joined1.fk_sales_order
+            on sales_order.pk_sales_order = joined1.pk_sales_order
         left join status 
             on sales_order.status_sales_order = status.status
     )
@@ -71,8 +72,8 @@ with
     , measure as (
         select
             *
-            , round(FREIGHT_SALES_ORDER / NULLIF(count(*) over(partition by PK_SALES_ORDER), 0), 2) as PRORATED_FREIGHT
-            , round(TAXAMT_SALES_ORDER / NULLIF(count(*) over(partition by PK_SALES_ORDER), 0), 2) as PRORATED_TAXAMT
+            , round(FREIGHT_SALES_ORDER / NULLIF(count(*) over(partition by FK_SALES_ORDER), 0), 2) as PRORATED_FREIGHT
+            , round(TAXAMT_SALES_ORDER / NULLIF(count(*) over(partition by FK_SALES_ORDER), 0), 2) as PRORATED_TAXAMT
             , ORDER_QTY * UNIT_PRICE * (1 - DISCOUNT) as NET_SALES
             , case 
                 when DISCOUNT > 0 then true
@@ -84,8 +85,8 @@ with
 
     , final_select as (
         select
-            PK_SALES_ORDER
-            , FK_ORDER_DETAIL
+            PK_ORDER_DETAIL
+            , FK_SALES_ORDER
             , FK_PRODUCT
             , FK_CUSTOMER
             , FK_SALES_PERSON
@@ -102,7 +103,6 @@ with
             , TOTALDUE_SALES_ORDER
             , NET_SALES
             , IS_DISCOUNTED
-            , NAME_SALES_REASON
             , REASON_TYPE
             , NAME_STATUS
             , MODIFIEDDATE
@@ -110,5 +110,5 @@ with
         from measure
     )
 
-select *
+select count(*)
 from final_select

@@ -22,17 +22,16 @@ with
     , joined as (
         select
             address.PK_ADDRESS
-            , sales_territory.PK_TERRITORY as FK_TERRITORY
             , address.CITY_ADDRESS
             , stateprovince.NAME_STATEPROVINCE
             , countryregion.NAME_COUNTRYREGION
-            , stateprovince.MODIFIEDDATE
-            , stateprovince.TRANSFORMEDDATE
-        from stateprovince
+            , address.MODIFIEDDATE
+            , address.TRANSFORMEDDATE
+        from address
+        left join stateprovince
+            on address.fk_state_province = stateprovince.pk_state_province
         left join countryregion
             on stateprovince.fk_country_code = countryregion.pk_country_code
-        left join address
-            on stateprovince.pk_state_province = address.fk_state_province
         left join sales_territory
             on stateprovince.fk_territory = sales_territory.pk_territory
     )
