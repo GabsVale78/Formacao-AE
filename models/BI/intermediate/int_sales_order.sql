@@ -74,7 +74,7 @@ with
             *
             , round(FREIGHT_SALES_ORDER / NULLIF(count(*) over(partition by FK_SALES_ORDER), 0), 2) as PRORATED_FREIGHT
             , round(TAXAMT_SALES_ORDER / NULLIF(count(*) over(partition by FK_SALES_ORDER), 0), 2) as PRORATED_TAXAMT
-            , ORDER_QTY * UNIT_PRICE * (1 - DISCOUNT) as NET_SALES
+            , ORDER_QTY * UNIT_PRICE - (1 - DISCOUNT) as NET_SALES
             , case 
                 when DISCOUNT > 0 then true
                 else false
@@ -110,5 +110,5 @@ with
         from measure
     )
 
-select count(*)
+select *
 from final_select
