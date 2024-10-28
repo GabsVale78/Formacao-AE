@@ -90,6 +90,7 @@ with
             , FK_PRODUCT
             , FK_CUSTOMER
             , FK_SALES_PERSON
+            , FK_SHIP_ADDRESS
             , FK_TERRITORY
             , FK_CREDIT_CARD
             , ORDER_DATE_SALES_ORDER
@@ -108,7 +109,7 @@ with
             , MODIFIEDDATE
             , TRANSFORMEDDATE  
         from measure
-    )
+    ) 
 
 select *
 from final_select
