@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: int_sales_order
+  - name: int_sales
     description: Modelo que armazena informações sobre ordem de venda.
     columns:
       - name: PRORATED_TAXAMT
