@@ -1,12 +1,13 @@
 with 
-    dim_order_detail as (
-        select *
-        from {{ ref('dim_order_detail') }}
-    )
     
-    , dim_location as (
+    dim_location as (
         select *
         from {{ ref('dim_location') }}
+    )
+
+    , dim_sales_reason as (
+        select *
+        from {{ ref('dim_sales_reason') }}
     )
 
     , dim_product as (
@@ -24,10 +25,10 @@ with
         from {{ ref('dim_credit_card') }}
     )
     
-    ,int_sales_order as (
+    , int_sales as (
         select *
-        from {{ ref('int_sales_order') }}
+        from {{ ref('int_sales') }}
     )
 
 select *
-from int_sales_order
+from int_sales

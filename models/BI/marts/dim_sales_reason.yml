@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: dim_sales_reason
+    description: Dimensão com dados para distinção entre razões de vendas.
+    columns:
+      - name: PK_SALES_ORDER
+        description: Identificador da ordem de venda.
+      - name: REASON_TYPE
+        description: Tipo de razão para venda. 
+      - name: MODIFIEDDATE
+        description: Data e hora da última modificação.
+      - name: TRANSFORMEDDATE
+        description: Data e hora em que o registro foi transformado ou carregado para o sistema.

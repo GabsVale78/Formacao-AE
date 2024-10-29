@@ -1,8 +1,0 @@
-version: 2
-
-models:
-  - name: int_order_detail
-    description: Tabela sobre detalhamento das ordens de vendas
-    columns:
-      - name: total_price
-        description: preço total pago por produto atrvés da quantidade * preço unitário.

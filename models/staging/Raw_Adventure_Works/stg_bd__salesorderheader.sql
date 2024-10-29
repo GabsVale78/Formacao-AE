@@ -8,7 +8,6 @@ with
         select
             cast(SALESORDERID as int) as pk_sales_order
             , cast(CUSTOMERID as int) as fk_customer
-            , cast(SALESPERSONID as int) as fk_sales_person
             , cast(TERRITORYID as int) as fk_territory
             , cast(CREDITCARDID as int) as fk_credit_card
             , cast(SHIPTOADDRESSID as varchar) as fk_ship_address
@@ -20,6 +19,7 @@ with
             , {{ round_decimals('FREIGHT') }} as freight_sales_order
             , cast(MODIFIEDDATE as date) as modifieddate
             , current_date as transformeddate
+            --, cast(SALESPERSONID as int) as
             --, cast(SHIPDATE as date) as 
             --, cast(DUEDATE as date) as 
             --, cast(REVISIONNUMBER as int) as 

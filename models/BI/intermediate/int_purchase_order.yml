@@ -1,6 +1,0 @@
-version: 2
-
-models:
-  - name: int_purchase_order
-    description: Tabela de pedidos de compra, incluindo status, datas e valores totais.
-    
