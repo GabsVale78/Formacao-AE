@@ -5,17 +5,19 @@ models:
     description: Tabela fato que armazena informações sobre vendas, conectando-se com dimensões de product, location, customer e sales_reason.
     columns:
       - name: PK_ORDER_DETAIL
-        description: bllabla
+        description: Chave primária que identifica unicamente cada detalhe do pedido de venda.
       - name: FK_SALES_ORDER
-        description: blablabla
+        description: Chave estrangeira que referencia o pedido de venda associado na tabela dim_sales_order.
       - name: FK_PRODUCT
-        description: Chave estrangeira que referencia a dim_product.
+        description: Chave estrangeira que referencia a dim_product, identificando o produto vendido.
       - name: FK_CUSTOMER
-        description: Chave estrangeira que referencia a dim_customer.
+        description: Chave estrangeira que referencia a dim_customer, identificando o cliente que fez a compra.
+      - name: FK_SHIP_ADDRESS
+        description: Chave estrangeira que referencia o endereço de entrega do pedido na tabela dim_address.
       - name: FK_TERRITORY
         description: Chave estrangeira que indica o território de vendas associado ao pedido.
       - name: FK_CREDIT_CARD
-        description: Chave estrangeira que referencia a dim_credit_card.
+        description: Chave estrangeira que referencia a dim_credit_card, associando o método de pagamento utilizado.
       - name: ORDER_DATE_SALES_ORDER
         description: Data em que o pedido de venda foi realizado.
       - name: ORDER_QTY
@@ -25,16 +27,24 @@ models:
       - name: DISCOUNT
         description: Valor do desconto aplicado ao pedido de venda.
       - name: TOTAL_PRICE
-        description: Preço total do item, calculado como (ORDER_QTY * UNIT_PRICE).
+        description: Preço total do item, calculado como (ORDER_QTY * UNIT_PRICE) menos descontos.
+      - name: REASON_TYPE
+        description: Tipo de razão associada ao pedido, categorizando o motivo da venda.
       - name: SUBTOTAL_SALES_ORDER
         description: Total antes de descontos e impostos, representando o valor dos produtos vendidos.
+      - name: PRORATED_TAXAMT
+        description: Valor do imposto proporcional aplicado ao pedido.
+      - name: PRORATED_FREIGHT
+        description: Custo do frete proporcional ao pedido.
+      - name: TOTALDUE_SALES_ORDER
+        description: Valor total a ser pago pelo cliente, incluindo produtos, impostos e frete.
+      - name: NET_SALES
+        description: Valor líquido das vendas, excluindo descontos e devoluções.
       - name: IS_DISCOUNTED
         description: Indica se o pedido recebeu desconto (booleano).
-      - name: NAME_SALES_REASON
-        description: Nome da razão pela qual a venda foi realizada.
-      - name: REASON_TYPE
-        description: Tipo de razão para a venda.
+      - name: NAME_STATUS
+        description: Status do pedido de venda.
       - name: MODIFIEDDATE
-        description: Data e hora da última modificação.
+        description: Data e hora da última modificação do registro.
       - name: TRANSFORMEDDATE
         description: Data e hora em que o registro foi transformado ou carregado para o sistema.
